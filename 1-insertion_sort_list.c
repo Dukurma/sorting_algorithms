@@ -1,10 +1,10 @@
 #include "sort.h"
 
 /**
-* len_list -Returns the length of a doubly linked list
-* @head: Pointer to the Doubly Linked List
+*len_list -	Returns the length of a doubly linked list
+*@head:     Pointer to the Doubly Linked List
 *
-* Return:Length of Doubly Linked List
+* Return:	Length of Doubly Linked List
 */
 int len_list(listint_t *head)
 {
@@ -20,9 +20,9 @@ int len_list(listint_t *head)
 
 /**
 * swap_nodes - Swap two adjusent nodes in list
-* @head:pointer to the head of the double-linked list
-* @nodeP1:pointer to the first node to swap
-* @nodeP2:pointer to the second node to swap
+* @head:    A pointer to the head of the double-linked list
+* @nodeP1:  A pointer to the first node to swap
+* @nodeP2:  A pointer to the second node to swap
 */
 void swap_nodes(listint_t **head, listint_t **nodeP1, listint_t *nodeP2)
 {
@@ -41,8 +41,9 @@ void swap_nodes(listint_t **head, listint_t **nodeP1, listint_t *nodeP2)
 
 
 /**
-* insertion_sort_list - sorts a Doubly Linked List using the Insertion Sort Algorithm
-* @list: pointer to the head of doubly linked list of integers
+* insertion_sort_list -   sorts a Doubly Linked List
+*                           using the Insertion Sort Algorithm
+* @list:    A pointer to the head of doubly linked list of integers
 */
 void insertion_sort_list(listint_t **list)
 {
