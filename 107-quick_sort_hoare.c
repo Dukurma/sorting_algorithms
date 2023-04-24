@@ -23,33 +23,33 @@ void swap_values(int **array, ssize_t i1, ssize_t i2)
  * partition - partitions for quicksort using the Hoare scheme
  *
  * @array: the array to sort
- * @low: the lowest index of the partition to sort
- * @high: the highest index of the partition to sort
+ * @lo: the lowest index of the partition to sort
+ * @hi: the highest index of the partition to sort
  * @size: size of the array
  *
  * Return: index of the partition
  */
-size_t partition(int *array, ssize_t low, ssize_t high, size_t size)
+size_t partition(int *array, ssize_t lo, ssize_t hi, size_t size)
 {
 	int pivot;
 
-	pivot = array[high];
+	pivot = array[hi];
 
-	while (low <= high)
+	while (lo <= hi)
 	{
-		while (array[low] < pivot)
-			low++;
-		while (array[high] > pivot)
-			high--;
-		if (low <= high)
+		while (array[lo] < pivot)
+			lo++;
+		while (array[hi] > pivot)
+			hi--;
+		if (lo <= hi)
 		{
-			if (low != high)
+			if (lo != hi)
 			{
-				swap_values(&array, low, high);
+				swap_values(&array, lo, hi);
 				print_array(array, size);
 			}
-			low++;
-			high--;
+			lo++;
+			hi--;
 		}
 	}
 	return (hi);
@@ -59,20 +59,20 @@ size_t partition(int *array, ssize_t low, ssize_t high, size_t size)
  * _quick_sort - partitions the array, then sorts each partition
  *
  * @array: the array to sort
- * @low: the lowest index of the partition to sort
- * @high: the highest index of the partition to sort
+ * @lo: the lowest index of the partition to sort
+ * @hi: the highest index of the partition to sort
  * @size: size of the array
  */
 
-void _quick_sort(int *array, ssize_t low, ssize_t high, size_t size)
+void _quick_sort(int *array, ssize_t lo, ssize_t hi, size_t size)
 {
 	ssize_t pivot;
 
-	if (low < high)
+	if (lo < hi)
 	{
-		pivot = partition(array, low, high, size);
-		_quick_sort(array, low, pivot, size);
-		_quick_sort(array, pivot + 1, high, size);
+		pivot = partition(array, lo, hi, size);
+		_quick_sort(array, lo, pivot, size);
+		_quick_sort(array, pivot + 1, hi, size);
 	}
 }
 
@@ -87,11 +87,11 @@ void _quick_sort(int *array, ssize_t low, ssize_t high, size_t size)
 
 void quick_sort_hoare(int *array, size_t size)
 {
-	ssize_t low = 0;
-	ssize_t high = (size - 1);
+	ssize_t lo = 0;
+	ssize_t hi = (size - 1);
 
 	if (!array || size < 2)
 		return;
 
-	_quick_sort(array, low, high, size);
+	_quick_sort(array, lo, hi, size);
 }
